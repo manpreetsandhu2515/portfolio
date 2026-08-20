@@ -31,7 +31,7 @@ export function Navbar() {
         >
           <div className="relative flex size-9 sm:size-10 items-center justify-center rounded-xl overflow-hidden p-1 bg-violet-500/10 border border-violet-500/30 shadow-sm transition-transform duration-300 group-hover:scale-110">
             <img
-              src="/real_cloud.png"
+              src={`${import.meta.env.BASE_URL}real_cloud.png`}
               alt="Manpreet Sandhu 3D Cloud Logo"
               className="size-full object-contain filter drop-shadow-xs"
             />

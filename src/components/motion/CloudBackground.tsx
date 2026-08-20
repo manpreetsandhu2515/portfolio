@@ -32,7 +32,7 @@ export function CloudBackground() {
           className={`absolute ${cloud.size} ${cloud.opacity} transition-opacity duration-300 pointer-events-none`}
         >
           <motion.img
-            src="/real_cloud.png"
+            src={`${import.meta.env.BASE_URL}real_cloud.png`}
             alt="3D Volumetric Floating Cloud"
             animate={{
               y: [-16, 16, -16],

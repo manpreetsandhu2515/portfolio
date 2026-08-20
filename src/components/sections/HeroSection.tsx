@@ -136,7 +136,7 @@ export function HeroSection() {
                   {/* Clean Round Circular Photo */}
                   <div className="relative rounded-full overflow-hidden size-64 sm:size-72 md:size-80 border-2 border-background">
                     <img
-                      src={personalInfo.profileImage}
+                      src={personalInfo.profileImage.startsWith('/') ? `${import.meta.env.BASE_URL}${personalInfo.profileImage.slice(1)}` : personalInfo.profileImage}
                       alt={personalInfo.name}
                       className="size-full object-cover object-center rounded-full transition-transform duration-700 hover:scale-105"
                     />
