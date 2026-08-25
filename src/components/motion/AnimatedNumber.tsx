@@ -26,7 +26,11 @@ export function AnimatedNumber({
         duration,
         ease: 'easeOut',
         onUpdate(current) {
-          setDisplayValue(Math.floor(current))
+          if (Number.isInteger(value)) {
+            setDisplayValue(Math.floor(current))
+          } else {
+            setDisplayValue(Number(current.toFixed(2)))
+          }
         },
       })
       return () => controls.stop()
