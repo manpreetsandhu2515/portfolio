@@ -5,20 +5,24 @@ import { useEffect, useState } from 'react'
 export function ThemeToggle() {
   const [isDark, setIsDark] = useState(() => {
     if (typeof window !== 'undefined') {
-      return document.documentElement.classList.contains('dark') ||
-        (!document.documentElement.classList.contains('light') &&
-          window.matchMedia('(prefers-color-scheme: dark)').matches)
+      const savedTheme = localStorage.getItem('theme')
+      if (savedTheme) {
+        return savedTheme === 'dark'
+      }
+      return false
     }
-    return true
+    return false
   })
 
   useEffect(() => {
     if (isDark) {
       document.documentElement.classList.add('dark')
       document.documentElement.classList.remove('light')
+      localStorage.setItem('theme', 'dark')
     } else {
       document.documentElement.classList.remove('dark')
       document.documentElement.classList.add('light')
+      localStorage.setItem('theme', 'light')
     }
   }, [isDark])
 
